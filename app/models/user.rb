@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :tasks
+  
   has_secure_password
   #mount_uploader :avatar, AvatarUploader
   validates :email, presence: true, uniqueness: true
