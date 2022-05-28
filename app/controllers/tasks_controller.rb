@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.where(user_id: @user.id)
+    @tasks = Task.where(user_id: @user.id).search(params[:name]).sorted_by_name
 
     render json: @tasks
   end
