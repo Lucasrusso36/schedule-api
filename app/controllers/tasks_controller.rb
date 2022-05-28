@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
-  before_action :authorize_request
+  before_action :authorized
   before_action :set_task, only: [:show, :update, :destroy]
 
   # GET /tasks
   def index
-    @tasks = @user.tasks.all
+    @tasks = Task.where(user_id: @user.id)
 
     render json: @tasks
   end
@@ -16,7 +16,8 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params.merge(user: @user))
+    @task = Task.new(task_params)
+    @task.user_id = @user.id
 
     if @task.save
       render json: @task, status: :created, location: @task
