@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.where(user_id: @user.id).search(params[:name]).sorted_by_name
+    @tasks = @user.tasks.search(params[:name]).sorted_by_name
 
     render json: @tasks
   end
@@ -16,8 +16,7 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
-    @task.user_id = @user.id
+    @task = @user.tasks.new(task_params)
 
     if @task.save
       render json: @task, status: :created, location: @task
