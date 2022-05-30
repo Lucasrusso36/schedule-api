@@ -72,3 +72,8 @@ If you want to run tests:
 ```
 bundle exec rspec
 ```
+
+### Endpoints
+
+Link:
+[https://drive.google.com/drive/u/0/folders/1N-_9M8oOhbMYOYAFM876K4RDWMnYxP5g](https://drive.google.com/drive/folders/1N-_9M8oOhbMYOYAFM876K4RDWMnYxP5g?usp=sharing)
